@@ -86,5 +86,28 @@
         </plugin>
       </plugins>
     </pluginManagement>
-  </build>
-</project>
+    <plugins>
+  <!-- Plugin Static Analysis -->
+  <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-checkstyle-plugin</artifactId>
+    <version>3.3.1</version>
+    <configuration>
+      <configLocation>checkstyle.xml</configLocation>
+      <consoleOutput>true</consoleOutput>
+      <failOnViolation>true</failOnViolation>
+      <includeTestSourceDirectory>false</includeTestSourceDirectory>
+    </configuration>
+    <executions>
+      <execution>
+        <id>check</id>
+        <phase>package</phase>
+        <goals>
+          <goal>check</goal>
+        </goals>
+      </execution>
+    </executions>
+  </plugin>
+</plugins>
+   </build>
+ </project>
